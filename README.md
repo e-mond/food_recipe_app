@@ -104,6 +104,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ### Contributors
 
-- [Benard Ako](https://github.com/BenardAko)
+- [Benard Ako][(https://github.com/Beniah1)]
 - [Edmond Anderson](https://github.com/e-mond)
 
