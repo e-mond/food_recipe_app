@@ -54,7 +54,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
 ```
-git clone <repository_url>
+git clone <https://github.com/e-mond/food_recipe_app>
 ```
 
 2. Navigate to the project directory:
