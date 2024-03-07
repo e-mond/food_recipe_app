@@ -17,7 +17,7 @@ function Home() {
           <Link to="/recipes" className="btn btn-primary">
             Get Started
           </Link>
-          <Link to="/recipes" className="btn2">
+          <Link to="/signup" className="btn2">
             Register With Us
           </Link>
         </div>
