@@ -1,4 +1,3 @@
-// App.js
 
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -30,12 +29,14 @@ function App() {
   }, []);
 
   const handleSearch = (query) => {
+    console.log("Search query in handleSearch:", query); // Check if query is received correctly
     fetchRecipes(query)
       .then(data => {
+        console.log("Fetched recipes:", data); // Check if recipes are fetched correctly
         setRecipes(data);
       })
       .catch(error => {
-        console.error('Error fetching recipes:', error);
+        console.error('Error fetching recipes:', error); // Check for any errors
       });
   };
 
