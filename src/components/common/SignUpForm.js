@@ -22,9 +22,11 @@ function SignUpForm() {
         </button>
         <br />
 
-        <Link to="/SigninForm" className="btn1">
-          Sign In{" "}
-        </Link>
+        <Link to="/signin">
+  <button type="submit" className="btn1">
+    Sign In
+  </button>
+</Link>
       </form>
     </div>
   );
