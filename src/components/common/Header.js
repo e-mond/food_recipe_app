@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaSignInAlt } from 'react-icons/fa';
-import './styles/main.css';
+import './styles/main.css'
 
 function Header({ onSearch }) {
   const location = useLocation();
@@ -16,32 +16,25 @@ function Header({ onSearch }) {
     onSearch(searchQuery);
   };
 
-  const handleButtonClick = () => {
-    // Trigger form submission when the button is clicked
-    document.getElementById('search-form').submit();
-  };
-
   return (
     <header>
       <div className="header-container">
         <div className="logo">
           <Link to="/">Recipe Management System</Link>
         </div>
-
         {location.pathname === '/recipes' && (
           <div className="search-bar">
-          <form id="search-form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Search recipes"
-              value={searchQuery}
-              onChange={handleChange}
-            />
-            <button type="submit" onClick={handleButtonClick}>Search</button>
-          </form>
-        </div>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Search recipes"
+                value={searchQuery}
+                onChange={handleChange}
+              />
+              <button type="submit">Search</button>
+            </form>
+          </div>
         )}
-
         <div className="nav-links">
           <ul>
             <li><Link to="/">Home</Link></li>
@@ -53,7 +46,6 @@ function Header({ onSearch }) {
             </li>
           </ul>
         </div>
-        
       </div>
     </header>
   );

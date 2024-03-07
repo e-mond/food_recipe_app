@@ -1,44 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
-// import { fetchRecipes } from '../../utils/api';
-import axios from 'axios';
-
+import { fetchRecipes } from '../../utils/api';
 
 const RecipeList = ({ recipes, onSearch }) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [fetchedRecipes, setFetchedRecipes] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-        const apiId = '060315d5';
-        const apiKey = '779684a0718f8fbc41bb123d3fa1b1da';
-  
-        const url = `https://api.edamam.com/api/recipes/v2?type=public&q=jollof&app_id=${apiId}&app_key=${apiKey}`;
-  
-        try {
-          const response = await axios.get(url);
-          setData(response.data.hits);
-        console.log(response);
-          setLoading(false);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-          setLoading(false);
-        }
-      };
+    if (!recipes) {
+      // Fetch recipes only if recipes prop is null or undefined
+      fetchRecipes('jollof')
+        .then(data => {
+          console.log('API response:', data);
+          setFetchedRecipes(data || []); // Update state with fetched recipes or an empty array
+        })
+        .catch(error => {
+          console.error('Error fetching recipes:', error);
+        });
+    } else {
+      // Use the provided recipes prop if available
+      setFetchedRecipes(recipes);
+    }
+  }, [recipes]); // Re-run effect whenever recipes prop changes
 
-    fetchData();
-  }, []); // Empty dependency array means it will only run once when the component mounts
-
-  if (loading) {
+  if (!fetchedRecipes || fetchedRecipes.length === 0) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="recipe-list">
       <h2>Recipes</h2>
-      {data.map((recipe, index) => (
-        <Link to={`/recipe/${recipe.recipe.label}`} key={index}>
+      {fetchedRecipes.map((recipe, index) => (
+        <Link to={`/recipe/${recipe.id}`} key={index}>
           <RecipeCard recipe={recipe} />
         </Link>
       ))}
