@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // Import the useState and useEffect hooks
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { fetchRecipes } from './utils/api';
 import Header from './components/common/Header';
