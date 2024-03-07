@@ -17,13 +17,14 @@ function SignUpForm() {
           Password:
         </label>
         <input type="password" id="password" name="password" />
-        <br />
-        <Link to="/SigninForm" className="btn1">
-          Sign In{" "}
-        </Link>
         <button type="submit" className="btn1">
           Sign Up
         </button>
+        <br />
+
+        <Link to="/SigninForm" className="btn1">
+          Sign In{" "}
+        </Link>
       </form>
     </div>
   );
