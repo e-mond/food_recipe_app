@@ -23,4 +23,17 @@ export const fetchRecipes = async (query) => {
   }
 };
 
-export default fetchRecipes;
+export const fetchRecipe = async (recipeId) => {
+  try {
+    const response = await axios.get(`${baseURL}/${recipeId}`, {
+      params: {
+        app_id: API_ID,
+        app_key: API_KEY,
+      },
+    });
+    return response?.data; // Assuming the response data contains the recipe details
+  } catch (error) {
+    console.error('Error fetching recipe:', error);
+    return null;
+  }
+};

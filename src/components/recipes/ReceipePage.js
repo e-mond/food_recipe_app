@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RecipeDetails from './RecipeDetails';
+import IngredientsPage from '../ingredients/IngredientsPage';
 import { fetchRecipe } from '../../utils/api';
 
 const RecipePage = () => {
@@ -24,6 +25,7 @@ const RecipePage = () => {
   return (
     <div className="recipe-page">
       <RecipeDetails recipe={recipe} />
+      <IngredientsPage recipe={recipe.recipe} /> 
     </div>
   );
 }

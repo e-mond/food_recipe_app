@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { fetchRecipes, fetchRecipe } from './utils/api'; // Assuming you have functions to fetch recipes and a single recipe
+import { fetchRecipes } from './utils/api';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import Home from './components/Home';
 import About from './components/About';
 import RecipeList from './components/recipes/RecipeList';
 import RecipeDetails from './components/recipes/RecipeDetails';
+import RecipePage from './components/recipes/ReceipePage'; 
 import IngredientsPage from './components/ingredients/IngredientsPage';
 import SignInForm from './components/common/SignInForm';
 import SignUpForm from './components/common/SignUpForm';
@@ -48,6 +49,7 @@ function App() {
           <Route path="/recipes" element={<RecipeList recipes={recipes} />} />
           {/* Routing for Recipe Details with dynamic id */}
           <Route path="/recipe/:id" element={<RecipeDetails />} />
+          <Route exact path="/recipes/:recipeId" component={RecipePage} />
           {/* Routing for Ingredients Page with dynamic id */}
           <Route path="/ingredients/:id" element={<IngredientsPage />} />
           <Route path="/signin" element={<SignInForm />} />
