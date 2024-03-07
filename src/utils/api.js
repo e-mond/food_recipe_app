@@ -17,7 +17,7 @@ const api = axios.create({
 
 export const fetchRecipes = async (query) => {
   try {
-    const response = await api.get('/search', {
+    const response = await axios.get('/search', {
       params: {
         q: query,
       },
