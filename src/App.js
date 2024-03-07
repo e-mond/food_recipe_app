@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { fetchRecipes, fetchRecipe } from './utils/api'; // Assuming you have functions to fetch recipes and a single recipe
+import { fetchRecipes } from './utils/api'; // Assuming you have a function to fetch recipes, Removed the fetchRecipe 
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import Home from './components/Home';
