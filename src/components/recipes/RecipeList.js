@@ -38,7 +38,7 @@ const RecipeList = ({ recipes, onSearch }) => {
     <div className="recipe-list">
       <h2>Recipes</h2>
       {data.map((recipe, index) => (
-        <Link to={`/recipe/${index}`} key={index}>
+        <Link to={`/recipe/${recipe.recipe.label}`} key={index}>
           <RecipeCard recipe={recipe} />
         </Link>
       ))}

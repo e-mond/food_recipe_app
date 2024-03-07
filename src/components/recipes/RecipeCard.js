@@ -1,14 +1,21 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-import '../common/styles/Card.css'; 
-
+import '../common/styles/Card.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const RecipeCard = ({ recipe }) => {
   return (
-    <div className="recipe-card">
-      <img src={recipe.image} alt={recipe.label} />
-      <h3>{recipe.label}</h3>
-    </div>
+    <Container fluid className="recipe-container"> 
+      <Row className="justify-content-center">
+        <Col xs={12} md={4} lg={3} className="mb-4">
+          <div className="new-recipe-card">
+            <img src={recipe.recipe.image} alt={recipe.recipe.label} className="new-recipe-image img-fluid" />
+            <div className="new-recipe-details">
+              <h3 className="new-recipe-title">{recipe.recipe.label}</h3>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

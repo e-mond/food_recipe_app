@@ -1,11 +1,11 @@
 import React from 'react';
-import '../common/Details.css'; // Assuming the CSS file is located in the 'common' directory
+import '../common/Details.css'; 
 
 const RecipeDetails = ({ recipe }) => {
   return (
     <div className="recipe-details">
-      <h2>{recipe.title}</h2>
-      <img src={recipe.image} alt={recipe.title} className="recipe-image" />
+      <h2>{recipe.recipe.label}</h2>
+      <img src={recipe.image} alt={recipe.recipe.label} className="recipe-image" />
       <div className="recipe-info">
         <p><strong>Ingredients:</strong></p>
         <ul>

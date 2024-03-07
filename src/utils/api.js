@@ -1,10 +1,10 @@
 // api.js
 import axios from 'axios';
 
-const API_ID = '708960fb';
-const API_KEY = 'bd112a6b5f4e5b3a0ea1b09b6c88069a';
+const API_ID = '060315d5';
+const API_KEY = '779684a0718f8fbc41bb123d3fa1b1da';
 
-const baseURL = 'https://api.edamam.com/api/recipes/v2';
+const baseURL = 'https://api.edamam.com/api/recipes/v2?type=public&q=jollof';
 
 const api = axios.create({
   baseURL,
@@ -22,7 +22,7 @@ export const fetchRecipes = async (query) => {
         q: query,
       },
     });
-    return response.data.hits; // Assuming the response data contains an array of recipe hits
+    return response?.data?.hits; // Assuming the response data contains an array of recipe hits
   } catch (error) {
     console.error('Error fetching recipes:', error);
     return null;
