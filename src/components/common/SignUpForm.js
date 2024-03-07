@@ -1,82 +1,44 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './styles/signup.css';
+import React from "react";
+import "./SignUpForm.css"; // Import the CSS file
+import SigninForm from "./SignInForm";
+import { Link } from "react-router-dom";
 
 function SignUpForm() {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-    // Reset form fields after submission
-    setFormData({
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    });
+    if (!email || !password) {
+      alert('Email and password are required');
+    } else {
+      alert('Thank you for signing up!');
+      // Handle form submission
+    }
   };
 
   return (
-    <div className="sign-up-form-container">
-      <h2>Sign Up As Admin</h2>
-      <form onSubmit={handleSubmit} className="sign-up-form">
-        <div className="form-group">
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            placeholder="Username"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Password"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            placeholder="Confirm Password"
-            required
-          />
-        </div>
-        <button id='signup' type="submit">Sign Up</button>
-        <p>Already have an account? <Link to="/signin">Sign In</Link></p>
+    <div>
+      <h2 className="signin">Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email" className="email">
+          Email:
+        </label>
+        <input type="email" id="email" name="email" />
+        <br />
+        <label htmlFor="password" className="password">
+          Password:
+        </label>
+        <input type="password" id="password" name="password" />
+        <button type="submit" className="btn1">
+          Sign Up
+        </button>
+        <br />
+        <Link to="/signin">
+          <button type="submit" className="btn1">
+            Sign In
+          </button>
+        </Link>
       </form>
     </div>
   );
